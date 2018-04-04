@@ -29,3 +29,11 @@ def pep8():
 	"""Check the project for PEP8 compliance using `pep8`"""
 	local("pep8 .")
 
+@task
+def tag_version(version):
+	"""
+	Tag New Version
+	"""
+	local("git tag %s" % version)
+	local("git push origin %s" % version)
+	
